@@ -24,6 +24,7 @@ def download_youtube_audio(video_url :str) ->str:
         filename = ydl.prepare_filename(info).replace(".webm", ".wav").replace(".m4a", ".wav")
     return filename
 
+
 def chunk_audio(audio_file_path : str , chunk_minutes : int = 10) -> list:
     audio = AudioSegment.from_wav(audio_file_path)
     chunk_ms = chunk_minutes * 60 * 1000 
@@ -38,6 +39,7 @@ def chunk_audio(audio_file_path : str , chunk_minutes : int = 10) -> list:
         chunks.append(chunk_path)
     
     return chunks
+
 
 def fetch_and_chunk(video_url: str) -> list:
     if video_url.startswith("https://www.youtube.com/watch"):
